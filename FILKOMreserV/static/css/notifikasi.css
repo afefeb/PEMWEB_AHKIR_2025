@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+:root {
+    --primary-color: #2c3855;
+    --primary-color-dark: #435681;
+    --text-dark: #333333;
+    --text-light: #767268;
+    --extra-light: #f3f4f6;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+h1.notif-header {
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: var(--extra-light);
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.footer__col h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__col ul {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__col p:hover {
+    color: var(--text-dark);
+}
+
+.footer__bar {
+    position: relative;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-align: right;
+    overflow: hidden;
+}
+
+.footer__bar::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 18rem;
+    transform: translateY(-50%);
+    width: 35rem;
+    height: 2px;
+    background-color: var(--text-light);
+}
+
+
+/* Gaya untuk status diterima */
+
+.notifikasi__card.diterima {
+    border-left: 5px solid green;
+    background-color: #ffffff;
+}
+
+
+/* Gaya untuk status proses */
+
+.notifikasi__card.proses {
+    border-left: 5px solid orange;
+    background-color: #ffffff;
+}
+
+.status-processing {
+    color: orange;
+}
+
+
+/* Gaya untuk status ditolak */
+
+.notifikasi__card.ditolak {
+    border-left: 5px solid red;
+    background-color: #ffffff;
+}
+
+footer .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+main.section__container {
+    max-width: 800px;
+    margin: auto;
+    padding: 3rem 1rem;
+}
+
+.section__header {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.notifikasi__card {
+    margin-bottom: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    background-color: var(--white);
+}
+
+.notifikasi__card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.notifikasi__card p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.status-accepted {
+    color: var(--accepted-color);
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: var(--rejected-color);
+    font-weight: bold;
+}
+
+.custom-button {
+    background-color: #2C3E50;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+    border: none;
+    /* Hilangkan border */
+    border-radius: 10px;
+    /* Membuat sudut membulat */
+    padding: 15px 40px;
+    /* Ruang di dalam tombol */
+    font-size: 16px;
+    /* Ukuran teks */
+    font-weight: bold;
+    /* Tebalkan teks */
+    text-align: center;
+    /* Posisikan teks di tengah */
+    cursor: pointer;
+    /* Ubah kursor menjadi pointer saat hover */
+    display: inline-block;
+    /* Membuat tombol berbentuk blok */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Tambahkan bayangan */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Tambahkan efek transisi */
+}
+
+
+/* Efek hover */
+
+.custom-button:hover {
+    background-color: #34495E;
+    /* Warna latar lebih gelap saat hover */
+    transform: translateY(-2px);
+    /* Geser tombol sedikit ke atas */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Efek saat tombol ditekan */
+
+.custom-button:active {
+    transform: translateY(2px);
+    /* Geser tombol sedikit ke bawah */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Kurangi bayangan */
+}
+
+.logo {
+    width: 10%;
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+@media (width < 600px) {
+    .nav__links {
+        display: none;
+    }
+    .header__container {
+        padding-bottom: 25rem;
+    }
+    .booking__container {
+        flex-direction: column;
+        bottom: -25rem;
+    }
+    .booking__container form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .popular__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .client__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer__container {
+        gap: 2rem;
+    }
+}
+
+nav {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link a {
+    font-weight: 500;
+    color: var(--text-light);
+    transition: 0.3s;
+}
+
+.link a:hover {
+    color: var(--primary-color);
+}
