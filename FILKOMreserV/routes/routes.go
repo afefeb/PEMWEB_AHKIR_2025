@@ -57,6 +57,6 @@ func SetupRoutes(router *gin.Engine) {
 	})
 
 	admin.GET("/bookings", bookingController.GetBookingsAdmin)
-	bookings.PUT("/:id/status", bookingController.UpdateBookingStatus)
+	admin.PUT("/bookings/:id/status", bookingController.UpdateBookingStatus)
 
 }
