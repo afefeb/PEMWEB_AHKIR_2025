@@ -54,7 +54,6 @@ func InitDB() error {
 		&models.User{},
 		&models.Room{},
 		&models.TimeSlot{},
-		&models.Notification{},
 		&models.Booking{},
 
 	)

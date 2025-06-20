@@ -9,7 +9,6 @@ func SetupRoutes(router *gin.Engine) {
 	// Inisialisasi controller
 	authController := controllers.NewAuthController()
 	roomController := controllers.NewRoomController()
-	notificationController := controllers.NewNotificationController()
 	bookingController := controllers.NewBookingController()
 
 	// Routes tanpa auth
@@ -47,12 +46,7 @@ func SetupRoutes(router *gin.Engine) {
 	{
 		bookings.POST("", bookingController.CreateBooking)
 		bookings.GET("", bookingController.GetBookings)
-		bookings.PUT("/:id/status", bookingController.UpdateBookingStatus)
 	}
-
-	api.GET("/notifications", notificationController.GetAllNotifications)
-	api.POST("/notifications", notificationController.CreateNotification)
-	api.PUT("/notifications/status", notificationController.UpdateNotificationStatus)
 
 	admin := router.Group("/admin")
 	admin.Use(middleware.JWTAuthMiddleware())

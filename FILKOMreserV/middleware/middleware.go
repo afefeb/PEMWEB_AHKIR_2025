@@ -58,8 +58,6 @@ func JWTAuthMiddleware() gin.HandlerFunc {
 	}
 }
 
-// RequireAdminRole - Middleware untuk memverifikasi role admin
-// Harus digunakan setelah JWTAuthMiddleware
 func RequireAdminRole() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Ambil role dari context (sudah di-set oleh JWTAuthMiddleware)

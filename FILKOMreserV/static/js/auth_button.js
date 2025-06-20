@@ -85,5 +85,3 @@ function refreshAuthButton() {
     window.dispatchEvent(event);
 }
 
-// Auto-refresh button setiap 5 detik (optional)
-// setInterval(refreshAuthButton, 5000);

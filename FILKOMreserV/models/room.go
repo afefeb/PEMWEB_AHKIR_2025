@@ -37,11 +37,6 @@ func (r *Room) GetUsageHistory() []string {
 	return strings.Split(r.UsageHistory, ",")
 }
 
-// SetUsageHistory sets usage history from a slice of strings
-func (r *Room) SetUsageHistory(history []string) {
-	r.UsageHistory = strings.Join(history, ",")
-}
-
 // RoomResponse is used for API responses
 type RoomResponse struct {
 	ID           uint       `json:"id"`

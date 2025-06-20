@@ -20,23 +20,23 @@ func NewRoomController() *RoomController {
 }
 
 
-// GetRoomByID returns a specific room by ID
-func (rc *RoomController) GetRoomByID(c *gin.Context) {
-	idParam := c.Param("id")
-	id, err := strconv.Atoi(idParam)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid room ID"})
-		return
-	}
+// // GetRoomByID returns a specific room by ID
+// func (rc *RoomController) GetRoomByID(c *gin.Context) {
+// 	idParam := c.Param("id")
+// 	id, err := strconv.Atoi(idParam)
+// 	if err != nil {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid room ID"})
+// 		return
+// 	}
 
-	var room models.Room
-	if err := config.DB.Preload("TimeSlots").First(&room, id).Error; err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Room not found"})
-		return
-	}
+// 	var room models.Room
+// 	if err := config.DB.Preload("TimeSlots").First(&room, id).Error; err != nil {
+// 		c.JSON(http.StatusNotFound, gin.H{"error": "Room not found"})
+// 		return
+// 	}
 
-	c.JSON(http.StatusOK, room.ToResponse())
-}
+// 	c.JSON(http.StatusOK, room.ToResponse())
+// }
 
 // Get Room Detail
 func GetRoomDetail(c *gin.Context) {

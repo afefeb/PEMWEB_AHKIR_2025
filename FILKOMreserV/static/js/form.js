@@ -361,17 +361,17 @@ function getBookingData() {
     };
 }
 
-// Fungsi tambahan untuk debugging slot ID
-function debugSlotId() {
-    console.log('=== SLOT ID DEBUG ===');
-    console.log('Current bookingData:', bookingData);
-    console.log('Stored bookingFormData:', sessionStorage.getItem('bookingFormData'));
-    console.log('Stored selectedSlot:', sessionStorage.getItem('selectedSlot'));
+// // Fungsi tambahan untuk debugging slot ID
+// function debugSlotId() {
+//     console.log('=== SLOT ID DEBUG ===');
+//     console.log('Current bookingData:', bookingData);
+//     console.log('Stored bookingFormData:', sessionStorage.getItem('bookingFormData'));
+//     console.log('Stored selectedSlot:', sessionStorage.getItem('selectedSlot'));
     
-    if (bookingData) {
-        console.log('Slot ID from bookingData:', bookingData.slotId);
-        console.log('Slot ID type:', typeof bookingData.slotId);
-        console.log('Slot ID valid?', !!(bookingData.slotId && bookingData.slotId !== 'undefined' && bookingData.slotId !== null));
-    }
-    console.log('===================');
-}
+//     if (bookingData) {
+//         console.log('Slot ID from bookingData:', bookingData.slotId);
+//         console.log('Slot ID type:', typeof bookingData.slotId);
+//         console.log('Slot ID valid?', !!(bookingData.slotId && bookingData.slotId !== 'undefined' && bookingData.slotId !== null));
+//     }
+//     console.log('===================');
+// }

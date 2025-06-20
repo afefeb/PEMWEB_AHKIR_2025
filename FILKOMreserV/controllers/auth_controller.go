@@ -102,52 +102,52 @@ func (ac *AuthController) GetProfile(c *gin.Context) {
 	})
 }
 
-//  Middleware untuk check apakah user adalah admin
-func (ac *AuthController) RequireAdmin() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		tokenString, err := c.Cookie("Authorization")
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized - No token"})
-			c.Abort()
-			return
-		}
+// //  Middleware untuk check apakah user adalah admin
+// func (ac *AuthController) RequireAdmin() gin.HandlerFunc {
+// 	return func(c *gin.Context) {
+// 		tokenString, err := c.Cookie("Authorization")
+// 		if err != nil {
+// 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized - No token"})
+// 			c.Abort()
+// 			return
+// 		}
 
-		claims := jwt.MapClaims{}
-		_, err = jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
-			return jwtSecretKey, nil
-		})
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
-			c.Abort()
-			return
-		}
+// 		claims := jwt.MapClaims{}
+// 		_, err = jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+// 			return jwtSecretKey, nil
+// 		})
+// 		if err != nil {
+// 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+// 			c.Abort()
+// 			return
+// 		}
 
-		username, ok := claims["username"].(string)
-		if !ok {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token payload"})
-			c.Abort()
-			return
-		}
+// 		username, ok := claims["username"].(string)
+// 		if !ok {
+// 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token payload"})
+// 			c.Abort()
+// 			return
+// 		}
 
-		role, ok := claims["role"].(string)
-		if !ok {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token payload"})
-			c.Abort()
-			return
-		}
+// 		role, ok := claims["role"].(string)
+// 		if !ok {
+// 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token payload"})
+// 			c.Abort()
+// 			return
+// 		}
 
-		if role != "admin" {
-			c.JSON(http.StatusForbidden, gin.H{"error": "Access denied - Admin only"})
-			c.Abort()
-			return
-		}
+// 		if role != "admin" {
+// 			c.JSON(http.StatusForbidden, gin.H{"error": "Access denied - Admin only"})
+// 			c.Abort()
+// 			return
+// 		}
 
-		//  Set user info di context untuk digunakan di controller lain
-		c.Set("username", username)
-		c.Set("role", role)
-		c.Next()
-	}
-}
+// 		//  Set user info di context untuk digunakan di controller lain
+// 		c.Set("username", username)
+// 		c.Set("role", role)
+// 		c.Next()
+// 	}
+// }
 
 //  Middleware untuk check apakah user sudah login (untuk user biasa)
 func (ac *AuthController) RequireAuth() gin.HandlerFunc {
