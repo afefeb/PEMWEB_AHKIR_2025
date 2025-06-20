@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+:root {
+    --primary-color: #2c3855;
+    --primary-color-dark: #435681;
+    --text-dark: #333333;
+    --text-light: #767268;
+    --extra-light: #f3f4f6;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+.fasilitas__container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button {
+    background-color: #2C3E50;
+    /* Warna latar belakang */
+    color: white;
+    /* Warna teks */
+    border: none;
+    /* Hilangkan border */
+    border-radius: 10px;
+    /* Membuat sudut membulat */
+    padding: 15px 40px;
+    /* Ruang di dalam tombol */
+    font-size: 16px;
+    /* Ukuran teks */
+    font-weight: bold;
+    /* Tebalkan teks */
+    text-align: center;
+    /* Posisikan teks di tengah */
+    cursor: pointer;
+    /* Ubah kursor menjadi pointer saat hover */
+    display: inline-block;
+    /* Membuat tombol berbentuk blok */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Tambahkan bayangan */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Tambahkan efek transisi */
+}
+
+.logo {
+    width: 10%;
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+@media (width < 600px) {
+    .nav__links {
+        display: none;
+    }
+    .header__container {
+        padding-bottom: 25rem;
+    }
+    .booking__container {
+        flex-direction: column;
+        bottom: -25rem;
+    }
+    .booking__container form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .popular__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .client__grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .footer__container {
+        gap: 2rem;
+    }
+}
+
+nav {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link a {
+    font-weight: 500;
+    color: var(--text-light);
+    transition: 0.3s;
+}
+
+.link a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Efek hover */
+
+.custom-button:hover {
+    background-color: #34495E;
+    /* Warna latar lebih gelap saat hover */
+    transform: translateY(-2px);
+    /* Geser tombol sedikit ke atas */
+}
+
+
+/* Efek saat tombol ditekan */
+
+.custom-button:active {
+    transform: translateY(2px);
+    /* Geser tombol sedikit ke bawah */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Kurangi bayangan */
+}
+
+.fasilitas__container h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.fasilitas__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.fasilitas__list li {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fasilitas__list li i {
+    color: var(--primary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* 
+.logo {
+    width: 150px;
+} */
+
+.tanggal__container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.tanggal__container h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.tanggal__container p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.tanggal__form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.footer__col ul {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tanggal__form label {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tanggal__form input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.tanggal__form button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tanggal__form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.footer {
+    background-color: var(--extra-light);
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.footer__col h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__col p:hover {
+    color: var(--text-dark);
+}
+
+.footer__bar {
+    position: relative;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-align: right;
+    overflow: hidden;
+}
+
+.footer__bar::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 18rem;
+    transform: translateY(-50%);
+    width: 35rem;
+    height: 2px;
+    background-color: var(--text-light);
+}
+
+footer .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+main.section__container {
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.footer__col h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.footer__col p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer__col p:hover {
+    color: var(--text-dark);
+}
+
+.footer__bar {
+    position: relative;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-align: right;
+    overflow: hidden;
+}
+
+.footer__bar::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 18rem;
+    transform: translateY(-50%);
+    width: 35rem;
+    height: 2px;
+    background-color: var(--text-light);
+}
+
+.informasi__ruangan {
+    margin: 0rem auto;
+    max-width: 1000px;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.ruangan__image {
+    width: 935px;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    object-position: 0% 50%;
+}
+
+.ruangan__detail h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.ruangan__detail p,
+.ruangan__detail ul {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}

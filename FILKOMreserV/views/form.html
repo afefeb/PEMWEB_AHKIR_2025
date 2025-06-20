@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/css/pilih-tanggal.css" />
+    <title>Form Booking Ruangan | FILKOMreserV</title>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="../static//asset/LOGO.png" alt="Logo FILKOMreserV" onclick="location.reload();" />
+
+        <ul class="nav__links">
+            <li class="link"><a href="/dashboard">Beranda</a></li>
+            <li class="link"><a href="/dashboard#booklet">Buku Panduan</a></li>
+            <li class="link"><a href="#footer">Kontak Kami</a></li>
+            <li class="link">
+                <a href="/notifikasi" style="display: flex; align-items: center">
+                    <i class="ri-notification-3-line" style="font-size: 1.5rem; margin-right: 5px"></i> Notifikasi
+                </a>
+            </li>
+            <button id="authButton" class="btn" style="color: var(--white); background-color: var(--primary-color)">
+                Login
+            </button>
+        </ul>
+    </nav>
+
+    <main class="section__container">
+        <div class="tanggal__container">
+            <h1>Form Booking Ruangan</h1>
+            <p id="booking-info">
+                Lengkapi informasi booking untuk ruangan yang telah Anda pilih.
+            </p>
+
+            <!-- Informasi Ruangan yang Dipilih -->
+            <div class="card mb-4" id="selected-room-info" style="display: none;">
+                <div class="card-header" style="background-color: var(--primary-color, #007bff); color: white;">
+                    <h5 class="mb-0">
+                        <i class="ri-information-line mr-2"></i>
+                        Informasi Ruangan yang Dipilih
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ruangan:</strong> <span id="info-room-name">-</span></p>
+                            <p><strong>Tanggal:</strong> <span id="info-date">-</span></p>
+                            <p><strong>Waktu:</strong> <span id="info-time">-</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Kapasitas:</strong> <span id="info-capacity">-</span></p>
+                            <p><strong>Lokasi:</strong> <span id="info-location">-</span></p>
+                            <p><strong>Fasilitas:</strong> <span id="info-facilities">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="bookingForm" class="tanggal__form">
+                <!-- Nama Pemohon -->
+                <div class="form-group">
+                    <label for="nama">Nama Pemohon:</label>
+                    <input type="text" id="nama" name="nama" class="form-control" readonly />
+                    <span id="nama-warning" class="warning-message">Nama tidak boleh kosong!</span>
+                </div>
+
+                <!-- Tanggal (Read-only dari slot yang dipilih) -->
+                <div class="form-group">
+                    <label for="tanggal">Tanggal:</label>
+                    <input type="date" id="tanggal" name="tanggal" class="form-control" readonly />
+                    <span id="tanggal-warning" class="warning-message">Tanggal tidak boleh kosong!</span>
+                </div>
+
+                <!-- Waktu Check-in (Read-only dari slot yang dipilih) -->
+                <div class="form-group">
+                    <label for="checkin">Waktu Check-in:</label>
+                    <input type="time" id="checkin" name="checkin" class="form-control" readonly />
+                    <span id="checkin-warning" class="warning-message">Waktu check-in tidak boleh kosong!</span>
+                </div>
+
+                <!-- Waktu Check-out (Read-only dari slot yang dipilih) -->
+                <div class="form-group">
+                    <label for="checkout">Waktu Check-out:</label>
+                    <input type="time" id="checkout" name="checkout" class="form-control" readonly />
+                    <span id="checkout-warning" class="warning-message">Waktu check-out tidak boleh kosong!</span>
+                </div>
+
+                <!-- Unggah File -->
+                <div class="form-group">
+                    <label for="fileUpload">Unggah Berkas Pendukung:</label>
+                    <input type="file" id="fileUpload" name="fileUpload" class="form-control" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" />
+                    <small class="form-text text-muted">Format yang didukung: PDF, DOC, DOCX, JPG, PNG (Max 5MB)</small>
+                    <span id="file-warning" class="warning-message">Berkas pendukung harus diunggah!</span>
+                </div>
+
+                <!-- Deskripsi -->
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi/Tujuan Penggunaan:</label>
+                    <textarea id="deskripsi" name="deskripsi" rows="4" class="form-control" placeholder="Masukkan tujuan penggunaan ruangan dan deskripsi kegiatan"></textarea>
+                    <span id="deskripsi-warning" class="warning-message">Deskripsi tidak boleh kosong!</span>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-secondary mr-3" onclick="kembaliKeList()">
+                        <i class="ri-arrow-left-line mr-1"></i>
+                        Kembali
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="prosesForm()">
+                        <i class="ri-send-plane-line mr-1"></i>
+                        Kirim Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p id="loading-text">Memproses booking, harap tunggu...</p>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="../static/js/form.js"></script>
+    <script src="../static/js/auth_button.js" defer></script>
+
+</body>
+
+</html>
